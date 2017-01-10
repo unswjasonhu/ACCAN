@@ -12,13 +12,10 @@ class DeviceGeneral(models.Model):
     Description = models.TextField()
     Manufacturer = models.TextField()
     PictureUrl = models.URLField()
-<<<<<<< HEAD
     Availabilty = models.CharField(max_length=30)
     Price = models.IntegerField(max_length=30)
-=======
     Availabilty models.CharField(max_length=30)
     Price = models.IntegerField()
->>>>>>> 6bfa1c655a2f103a2ae819d8b37ffd353cd5b309
     Interactivity = models.TextField()
     AppName = models.TextField()
     FirmVersion = models.TextField()
