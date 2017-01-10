@@ -22,7 +22,8 @@ class DeviceGeneral(models.Model):
     DateTested = models.DateField()
     OS = models.TextField()
     ComunicationMethod = models.TextField()
-    
+     def __str__(self):
+            return u'%s, %s' % (self.DeviceID, self.Name)
     
 class DeviceTrafficPattern(models.Model):
     DeviceID = models.IntegerField(primary_key=True)
@@ -40,6 +41,8 @@ class DeviceTrafficPattern(models.Model):
     PortsOpen = models.TextField()
     PortComm = models.TextField()
     EncryptionProtocol = models.TextField()
+    def __str__(self):
+        return u'%s' % (self.DeviceID) 
     
 class Exploit(models.Model):
     ExploitID = models.IntegerField(primary_key=True)
@@ -49,12 +52,15 @@ class Exploit(models.Model):
     Script = models.TextField()
     SamplePCAP = models.TextField()
     Characteristic = models.TextField()
-
+    def __str__(self):
+        return u'%s' % (self.ExploitID) 
+    
 class ExploitInfo(models.Model):
     ExploitInfoID = models.IntegerField(primary_key=True)
     ExploitName = models.TextField()
     ExploitInfo = models.TextField()
-    
+    def __str__(self):
+        return u'%s' % (self.ExploitInfoID)     
     
     
     
