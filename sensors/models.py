@@ -4,7 +4,7 @@ from django.db import models
 
 # Create your models here.
 class DeviceGeneral(models.Model):
-    DeviceID = models.IntegerField(max_length=30, primary_key=True)
+    DeviceID = models.IntegerField(primary_key=True)
     Name = models.CharField(max_length=30)
     Category = models.CharField(max_length=30)
     Industry = models.CharField(max_length=30)
@@ -13,7 +13,7 @@ class DeviceGeneral(models.Model):
     Manufacturer = models.TextField()
     PictureUrl = models.URLField()
     Availabilty models.CharField(max_length=30)
-    Price = models.IntegerField(max_length=30)
+    Price = models.IntegerField()
     Interactivity = models.TextField()
     AppName = models.TextField()
     FirmVersion = models.TextField()
@@ -23,33 +23,33 @@ class DeviceGeneral(models.Model):
     
     
 class DeviceTrafficPattern(models.Model):
-    DeviceID = models.IntegerField(max_length=30, primary_key=True)
-    SleepTime = models.IntegerField(max_length=30)
-    ActiveVolume = models.IntegerField(max_length=30)
-    AvgPacketSize = models.IntegerField(max_length=30)
-    MeanRate = models.IntegerField(max_length=30)
-    PeakRate = models.IntegerField(max_length=30)
-    ActiveTime = models.IntegerField(max_length=30)
-    NumServersComm = models.IntegerField(max_length=30)
-    NumProtocols = models.IntegerField(max_length=30)
-    UniqueDNSReq = models.IntegerField(max_length=30)
-    DNSInterval = models.IntegerField(max_length=30)
-    NTPInterval = models.IntegerField(max_length=30)
+    DeviceID = models.IntegerField(primary_key=True)
+    SleepTime = models.IntegerField()
+    ActiveVolume = models.IntegerField()
+    AvgPacketSize = models.IntegerField()
+    MeanRate = models.IntegerField()
+    PeakRate = models.IntegerField()
+    ActiveTime = models.IntegerField()
+    NumServersComm = models.IntegerField()
+    NumProtocols = models.IntegerField()
+    UniqueDNSReq = models.IntegerField()
+    DNSInterval = models.IntegerField()
+    NTPInterval = models.IntegerField()
     PortsOpen = models.TextField()
     PortComm = models.TextField()
     EncryptionProtocol = models.TextField()
     
 class Exploit(models.Model):
-    ExploitID = models.IntegerField(max_length=30, primary_key=True)
-    DeviceID = models.IntegerField(max_length=30)
-    ExploitInfoID = models.IntegerField(max_length=30)
+    ExploitID = models.IntegerField(primary_key=True)
+    DeviceID = models.IntegerField()
+    ExploitInfoID = models.IntegerField()
     ExploitDetail = models.TextField()
     Script = models.TextField()
     SamplePCAP = models.TextField()
     Characteristic = models.TextField()
 
 class ExploitInfo(models.Model):
-    ExploitInfoID = models.IntegerField(max_length=30, primary_key=True)
+    ExploitInfoID = models.IntegerField(primary_key=True)
     ExploitName = models.TextField()
     ExploitInfo = models.TextField()
     
