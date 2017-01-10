@@ -14,7 +14,7 @@ class DeviceGeneral(models.Model):
     PictureUrl = models.URLField()
     Availabilty = models.CharField(max_length=30)
     Price = models.IntegerField(max_length=30)
-    Availabilty models.CharField(max_length=30)
+    Availabilty = models.CharField(max_length=30)
     Price = models.IntegerField()
     Interactivity = models.TextField()
     AppName = models.TextField()
