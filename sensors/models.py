@@ -12,7 +12,7 @@ class DeviceGeneral(models.Model):
     Description = models.TextField()
     Manufacturer = models.TextField()
     PictureUrl = models.URLField()
-    Availabilty models.CharField(max_length=30)
+    Availabilty = models.CharField(max_length=30)
     Price = models.IntegerField(max_length=30)
     Interactivity = models.TextField()
     AppName = models.TextField()
