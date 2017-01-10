@@ -39,6 +39,20 @@ class DeviceTrafficPattern(models.Model):
     PortComm = models.TextField()
     EncryptionProtocol = models.TextField()
     
+class Exploit(models.Model):
+    ExploitID = models.IntegerField(max_length=30, primary_key=True)
+    DeviceID = models.IntegerField(max_length=30)
+    ExploitInfoID = models.IntegerField(max_length=30)
+    ExploitDetail = models.TextField()
+    Script = models.TextField()
+    SamplePCAP = models.TextField()
+    Characteristic = models.TextField()
+
+class ExploitInfo(models.Model):
+    ExploitInfoID = models.IntegerField(max_length=30, primary_key=True)
+    ExploitName = models.TextField()
+    ExploitInfo = models.TextField()
+    
     
     
     
