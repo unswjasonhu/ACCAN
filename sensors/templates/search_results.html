@@ -1,0 +1,19 @@
+<html>
+    <head>
+    <title>Sensor Search</title>
+    </head>
+    <body>
+        <p>You searched for:<strong>{{query}}</strong></p>
+
+        {%if devicegeneral %}
+            <p>Found{{devicegeneral|length}}sensor{{devicegeneral|pluralize}}.</p>
+            <ul>
+            {% for sensor in devidegeneral %}
+                <li>{{devicegeneral.DateTested}}</li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>No sensors matched your search criteria.</p>
+        {% endif %}
+    </body>
+</html>

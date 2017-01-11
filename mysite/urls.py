@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from mysite.views import hello, homepage,timenow
+from sensors import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^hello/$', hello),
-    url(r'^$', timenow)
-]
+    url(r'^api/demo/',include('sensors.urls')),
+    ]
+
+
