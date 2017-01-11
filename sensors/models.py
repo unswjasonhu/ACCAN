@@ -5,9 +5,9 @@ from django.db import models
 # Create your models here.
 class DeviceGeneral(models.Model):
     DeviceID = models.IntegerField(primary_key=True)
-    Name = models.CharField(max_length=30)
-    Category = models.CharField(max_length=30)
-    Industry = models.CharField(max_length=30)
+    Name = models.TextField()
+    Category = models.TextField()
+    Industry = models.TextField()
     ReleaseDate = models.DateField()
     Description = models.TextField()
     Manufacturer = models.TextField()
@@ -20,8 +20,14 @@ class DeviceGeneral(models.Model):
     DateTested = models.DateField()
     OS = models.TextField()
     ComunicationMethod = models.TextField()
-     def __str__(self):
-            return u'%s, %s' % (self.DeviceID, self.Name)
+    def __str__(self):
+        return u'%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s' % (self.DeviceID, self.Name, self.Category, self.Industry, self.ReleaseDate, self.Description, self.Manufacturer, self.PictureUrl, self.Availabilty, self.Price
+                                                Interactivity = models.TextField()
+                                                    AppName = models.TextField()
+                                                        FirmVersion = models.TextField()
+                                                            DateTested = models.DateField()
+                                                                OS = models.TextField()
+                                                                    ComunicationMethod = models.TextField())
     
 class DeviceTrafficPattern(models.Model):
     DeviceID = models.IntegerField(primary_key=True)

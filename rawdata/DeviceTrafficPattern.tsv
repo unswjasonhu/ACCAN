@@ -1,0 +1,8 @@
+DeviceID	SleepTime (sec)	Active Volume (B)	Avg Packet Size (B)	Mean Rate (Bps)	Peak / Mean Rate 	Active Time (Sec)	Num Servers Comm	NumProtocols	Unique DNS Req	DNS Interval (sec)	NTP Interval (Sec)	Ports Open	Port Comm	Encryption Protocol
+1	4	27716	327	11388	11	1	2	3	3	61	32	"{53,80,1900,49102}"	"{53,80, 1900,49152}"	None
+2	4	142	94	462	11	1	2	3	3	54	32	"{80,1900,5001,5002,5003}"	"{80,1900,5001,5002,5003}"	None
+3	4	142	94	462	11	1	15	5	3	54	32	"{80,8080,1900}"	"{80,8080,1900}"	None
+4	4	142	94	462	11	1	2	3	3	54	32	"{80,8080,56700}"	"{80,8080,56700}"	None
+5	66	401	94	462	11	2	2	3	3	11981	20058	"{80,443}"	"{80,443}"	SSL
+6	241	401	144	462	11	1	2	3	3	54	4536	"{80,443,9999}"	"{80,443,9999}"	None
+7	4	142	327	2461	66	2	113	5	3	54	32	"{80,443,5222}"	"{80,443,5222}"	None
