@@ -34,7 +34,6 @@ for row in dataReader1:
         sensors1.DateTested = row[13]
         sensors1.OS = row[14]
         sensors1.ComunicationMethod = row[15]
-        print sensors1
         sensors1.save()
 
 for row in dataReader2:
@@ -55,5 +54,24 @@ for row in dataReader2:
         sensor2.PortsOpen = row[12]
         sensor2.PortComm = row[13]
         sensor2.EncryptionProtocol = row[14]
-        print sensor2
         sensor2.save()
+
+for row in dataReader3:
+    if row[0]!= 'ExploitID':
+        sensor3 = Exploit()
+        sensor3.ExploitID = row[0]
+        sensor3.DeviceID = row[1]
+        sensor3.ExploitInfoID = row[2]
+        sensor3.ExploitDetail = row[3]
+        sensor3.Script = row[4]
+        sensor3.SamplePCAP = row[5]
+        sensor3.Characteristic = row[6]
+        sensor3.save()
+
+for row in dataReader4:
+    if row[0]!= 'ExploitInfoID':
+        sensor4 = ExploitInfo()
+        sensor4.ExploitInfoID = row[0]
+        sensor4.ExploitName = row[1]
+        sensor4.ExploitInfo = row[2]
+        sensor4.save()
