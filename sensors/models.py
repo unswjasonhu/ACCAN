@@ -44,7 +44,11 @@ class DeviceTrafficPattern(models.Model):
     PortComm = models.TextField()
     EncryptionProtocol = models.TextField()
     def __str__(self):
-        return u'%s' % (self.DeviceID) 
+        return u'%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s' % (self.DeviceID, self.SleepTime, self.ActiveVolume, self.AvgPacketSize, \
+                                                                                    self.MeanRate, self.PeakRate, self.ActiveTime, \
+                                                                                    self.NumServersComm, self.NumProtocols, self.UniqueDNSReq, \
+                                                                                    self.DNSInterval, self.NTPInterval, self.PortsOpen, \
+                                                                                    self.PortComm, self.EncryptionProtocol) 
     
 class Exploit(models.Model):
     ExploitID = models.IntegerField(primary_key=True)
