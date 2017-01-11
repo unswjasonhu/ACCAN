@@ -1,12 +1,12 @@
 
-fromrest_frameworkimportserializers
+from rest_framework import serializers
 
-from sensors.models import DeviceGeneral
+from .models import DeviceGeneral
 
 
 class DeviceSerializer(serializers.ModelSerializer):
-    classMeta:
-        model=DeivceGeneral
+    class Meta:
+        model=DeviceGeneral
         fields=("DeviceID","Name","Category","Industry",\
         "ReleaseDate","Description","Manufacturer",\
         "PictureUrl","Availabilty","Price",\
