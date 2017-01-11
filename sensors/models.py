@@ -21,13 +21,11 @@ class DeviceGeneral(models.Model):
     OS = models.TextField()
     ComunicationMethod = models.TextField()
     def __str__(self):
-        return u'%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s' % (self.DeviceID, self.Name, self.Category, self.Industry, self.ReleaseDate, self.Description, self.Manufacturer, self.PictureUrl, self.Availabilty, self.Price
-                                                Interactivity = models.TextField()
-                                                    AppName = models.TextField()
-                                                        FirmVersion = models.TextField()
-                                                            DateTested = models.DateField()
-                                                                OS = models.TextField()
-                                                                    ComunicationMethod = models.TextField())
+        return u'%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s' % (self.DeviceID, self.Name, self.Category, self.Industry, \
+                                                                                    self.ReleaseDate, self.Description, self.Manufacturer, \
+                                                                                    self.PictureUrl, self.Availabilty, self.Price, \
+                                                                                    self.Interactivity, self.AppName, self.FirmVersion, \
+                                                                                    self.DateTested, self.OS, self.ComunicationMethod)
     
 class DeviceTrafficPattern(models.Model):
     DeviceID = models.IntegerField(primary_key=True)
