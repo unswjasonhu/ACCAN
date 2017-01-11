@@ -59,14 +59,15 @@ class Exploit(models.Model):
     SamplePCAP = models.TextField()
     Characteristic = models.TextField()
     def __str__(self):
-        return u'%s' % (self.ExploitID) 
+        return u'%s, %s, %s, %s, %s, %s, %s' % (self.ExploitID, self.DeviceID, self.ExploitInfoID, self.ExploitDetail,\
+                                               self.Script, self.SamplePCAP, self. Characteristic) 
     
 class ExploitInfo(models.Model):
     ExploitInfoID = models.IntegerField(primary_key=True)
     ExploitName = models.TextField()
     ExploitInfo = models.TextField()
     def __str__(self):
-        return u'%s' % (self.ExploitInfoID)     
+        return u'%s, %s, %s' % (self.ExploitInfoID, self.ExploitName, self.ExploitInfo)     
     
     
     
