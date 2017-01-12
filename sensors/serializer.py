@@ -13,7 +13,11 @@ class DeviceSerializer(serializers.ModelSerializer):
         "Interactivity","AppName","FirmVersion",\
         "DateTested","OS","ComunicationMethod")
 
-
+class DeviceTrafficePatternSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Exploit
+        fields= ("ExploitID", "DeviceID", "ExploitInfoID", "ExploitDetail",\
+                "Script", "SamplePCAP", "Characteristic")
         
         
 class DeviceExploitSerializer(serializers.ModelSerializer):
