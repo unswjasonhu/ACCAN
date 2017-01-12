@@ -15,7 +15,7 @@ class DeviceSerializer(serializers.ModelSerializer):
 
 class DeviceTrafficePatternSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Exploit
+        model = DeviceTrafficPattern
         fields= ("DeviceID", "SleepTime", "ActiveVolume", "AvgPacketSize", "MeanRate", "PeakRate", "ActiveTime", \
                  "NumServersComm", "NumProtocols", "UniqueDNSReq", "DNSInterval", "NTPInterval", "PortsOpen", \
                  "PortComm", "EncryptionProtocol")
@@ -26,4 +26,9 @@ class DeviceExploitSerializer(serializers.ModelSerializer):
         model = Exploit
         fields= ("ExploitID", "DeviceID", "ExploitInfoID", "ExploitDetail",\
                 "Script", "SamplePCAP", "Characteristic")
+
+class DeviceExploitInfoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ExploitInfo
+        fields= ("ExploitInfoID", "ExploitName", "ExploitInfo")
 
