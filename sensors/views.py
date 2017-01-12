@@ -5,15 +5,18 @@ from django.shortcuts import render
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from sensors.models import DeviceGeneral
-from sensors.serializer import DeviceSerializer
+from sensors.models import DeviceGeneral, Exploit
+from sensors.serializer import DeviceSerializer, DeviceExploitSerializer
 
 @api_view(['GET','POST'])
 def Sensor_list(request):
     if request.method=="GET":
         sensors = DeviceGeneral.objects.all()
+        sensors1= Exploit.objects.all()
         serializer = DeviceSerializer(sensors,many=True)
-        return Response(serializer.data)
+        serializer1 = DeviceExploitSerializer(sensors1, many = True)
+        return Response({'DeviceGeneral':serializer.data, 'DeviceExploit':\
+                serializer1.data})
     elif request.method == 'POST':
         print request.body
         serializer = DeviceSerializer(data=json.loads(request.body))
@@ -28,12 +31,15 @@ def Sensor_list(request):
 def Sensor_detail(request,pk):
     try:
         sensors = DeviceGeneral.objects.get(pk=pk)
+        sensors1 = Exploit.objects.filter(DeviceID=pk)
     except DeviceGeneral.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
 
     if request.method == "GET":
-        serializer = DeviceGeneralSerializer(sensors)
-        return Response(serializer.data)
+        serializer = DeviceSerializer(sensors)
+        serializer1 = DeviceExploitSerializer(sensors1, many = True)
+        return Response({'General':serializer.data, 'Exploit':serializer1.data})
+
     elif request.method == "PUT":
         serializer = DeviceGeneralSerializer(sensors,data=json.loads(request.body))
         if serializer.is_valid():

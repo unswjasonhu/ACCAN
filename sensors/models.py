@@ -64,7 +64,7 @@ class Exploit(models.Model):
     Characteristic = models.TextField()
     def __str__(self):
         return u'%s, %s, %s, %s, %s, %s, %s' % (self.ExploitID, self.DeviceID, self.ExploitInfoID, self.ExploitDetail,\
-                                               self.Script, self.SamplePCAP, self. Characteristic)
+                self.Script, self.SamplePCAP, self. Characteristic)
     class Meta:
         ordering = ['ExploitID']
     

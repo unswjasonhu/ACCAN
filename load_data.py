@@ -34,6 +34,8 @@ for row in dataReader1:
         sensors1.DateTested = row[13]
         sensors1.OS = row[14]
         sensors1.ComunicationMethod = row[15]
+        print sensors1
+
         sensors1.save()
 
 for row in dataReader2:

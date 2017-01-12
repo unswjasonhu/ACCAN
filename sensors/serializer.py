@@ -1,7 +1,7 @@
 
 from rest_framework import serializers
 
-from .models import DeviceGeneral
+from .models import DeviceGeneral, DeviceTrafficPattern, Exploit
 
 
 class DeviceSerializer(serializers.ModelSerializer):
@@ -12,3 +12,13 @@ class DeviceSerializer(serializers.ModelSerializer):
         "PictureUrl","Availabilty","Price",\
         "Interactivity","AppName","FirmVersion",\
         "DateTested","OS","ComunicationMethod")
+
+
+        
+        
+class DeviceExploitSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Exploit
+        fields= ("ExploitID", "DeviceID", "ExploitInfoID", "ExploitDetail",\
+                "Script", "SamplePCAP", "Characteristic")
+
