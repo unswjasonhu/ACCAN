@@ -1,7 +1,7 @@
 
 from rest_framework import serializers
 
-from .models import DeviceGeneral, DeviceTrafficPattern, Exploit
+from .models import DeviceGeneral, DeviceTrafficPattern, Exploit, ExploitInfo
 
 
 class DeviceSerializer(serializers.ModelSerializer):
@@ -16,8 +16,9 @@ class DeviceSerializer(serializers.ModelSerializer):
 class DeviceTrafficePatternSerializer(serializers.ModelSerializer):
     class Meta:
         model = Exploit
-        fields= ("ExploitID", "DeviceID", "ExploitInfoID", "ExploitDetail",\
-                "Script", "SamplePCAP", "Characteristic")
+        fields= ("DeviceID", "SleepTime", "ActiveVolume", "AvgPacketSize", "MeanRate", "PeakRate", "ActiveTime", \
+                 "NumServersComm", "NumProtocols", "UniqueDNSReq", "DNSInterval", "NTPInterval", "PortsOpen", \
+                 "PortComm", "EncryptionProtocol")
         
         
 class DeviceExploitSerializer(serializers.ModelSerializer):
