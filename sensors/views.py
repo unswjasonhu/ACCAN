@@ -5,18 +5,22 @@ from django.shortcuts import render
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from sensors.models import DeviceGeneral, Exploit
-from sensors.serializer import DeviceSerializer, DeviceExploitSerializer
+from sensors.models import DeviceGeneral, DeviceTrafficPattern, Exploit, ExploitInfo
+from sensors.serializer import DeviceSerializer, DeviceTrafficPatternSerializer, DeviceExploitSerializer, DeviceExploitInofoSerializer
 
 @api_view(['GET','POST'])
 def Sensor_list(request):
     if request.method=="GET":
         sensors = DeviceGeneral.objects.all()
-        sensors1= Exploit.objects.all()
+        sensors1 = DeviceTrafficPattern.objects.all()
+        sensors2 = Exploit.objects.all()
+        sensors3 = ExploitInfo.objects.all()
         serializer = DeviceSerializer(sensors,many=True)
-        serializer1 = DeviceExploitSerializer(sensors1, many = True)
-        return Response({'DeviceGeneral':serializer.data, 'DeviceExploit':\
-                serializer1.data})
+        serializer1 = DeviceTrafficPatternSerializer(sensors1,many=True)
+        serializer2 = DeviceExploitSerializer(sensors2, many = True)
+        serializer3 = DeviceExploitInfoSerializer(sensors3, many = True)
+        return Response({'DeviceGeneral':serializer.data, 'DeviceTrafficPattern':serializer1.data,\
+                         'DeviceExploit':serializer2.data, 'DeviceExploitInfo':serializer3.data})
     elif request.method == 'POST':
         print request.body
         serializer = DeviceSerializer(data=json.loads(request.body))
@@ -31,7 +35,10 @@ def Sensor_list(request):
 def Sensor_detail(request,pk):
     try:
         sensors = DeviceGeneral.objects.get(pk=pk)
-        sensors1 = Exploit.objects.filter(DeviceID=pk)
+        sensors1 = DeviceTrafficPattern.objects.get(pk=pk)
+        sensors2 = Exploit.objects.filter(DeviceID=pk)
+        
+        sensors3 = ExploitInfo.objects.filter(DeviceID=pk)
     except DeviceGeneral.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
 
