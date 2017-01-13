@@ -37,15 +37,21 @@ def Sensor_detail(request,pk):
         sensors = DeviceGeneral.objects.get(pk=pk)
         sensors1 = DeviceTrafficPattern.objects.get(pk=pk)
         sensors2 = Exploit.objects.filter(DeviceID=pk)
-        
-        sensors3 = ExploitInfo.objects.filter(DeviceID=pk)
+        Exploitnum = sensor2.count()
+        ExploitIDlist = []
+        for i in range(Exploitnum):
+                Exploitlist.append(sensor2[i].ExploitID)
+        sensors3 = ExploitInfo.objects.filter(ExploitID__in = ExploitIDlist)
     except DeviceGeneral.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
 
     if request.method == "GET":
         serializer = DeviceSerializer(sensors)
-        serializer1 = DeviceExploitSerializer(sensors1, many = True)
-        return Response({'General':serializer.data, 'Exploit':serializer1.data})
+        serializer1 = DeviceTrafficPatternSerializer(sensors1)
+        serializer2 = DeviceExploitSerializer(sensors2, many = True)
+        serializer3 = DeviceExploitInfoSerializer(sensors3, many = True)
+        return Response({'DeviceGeneral':serializer.data, 'DeviceTrafficPattern':serializer1.data,\
+                         'DeviceExploit':serializer2.data, 'DeviceExploitInfo':serializer3.data})
 
     elif request.method == "PUT":
         serializer = DeviceGeneralSerializer(sensors,data=json.loads(request.body))
