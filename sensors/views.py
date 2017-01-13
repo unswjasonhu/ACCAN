@@ -6,7 +6,7 @@ from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from sensors.models import DeviceGeneral, DeviceTrafficPattern, Exploit, ExploitInfo
-from sensors.serializer import DeviceSerializer, DeviceTrafficPatternSerializer, DeviceExploitSerializer, DeviceExploitInofoSerializer
+from sensors.serializer import DeviceSerializer, DeviceTrafficPatternSerializer, DeviceExploitSerializer, DeviceExploitInfoSerializer
 
 @api_view(['GET','POST'])
 def Sensor_list(request):

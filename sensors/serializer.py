@@ -13,7 +13,7 @@ class DeviceSerializer(serializers.ModelSerializer):
         "Interactivity","AppName","FirmVersion",\
         "DateTested","OS","ComunicationMethod")
 
-class DeviceTrafficePatternSerializer(serializers.ModelSerializer):
+class DeviceTrafficPatternSerializer(serializers.ModelSerializer):
     class Meta:
         model = DeviceTrafficPattern
         fields= ("DeviceID", "SleepTime", "ActiveVolume", "AvgPacketSize", "MeanRate", "PeakRate", "ActiveTime", \
