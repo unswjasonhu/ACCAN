@@ -32,3 +32,8 @@ class DeviceExploitInfoSerializer(serializers.ModelSerializer):
         model = ExploitInfo
         fields= ("ExploitInfoID", "ExploitName", "ExploitInfo")
 
+
+class DeviceGeneralSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=DeviceGeneral
+        fields=("DeviceID","Name","Category")

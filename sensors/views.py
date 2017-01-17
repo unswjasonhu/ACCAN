@@ -6,21 +6,20 @@ from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from sensors.models import DeviceGeneral, DeviceTrafficPattern, Exploit, ExploitInfo
-from sensors.serializer import DeviceSerializer, DeviceTrafficPatternSerializer, DeviceExploitSerializer, DeviceExploitInfoSerializer
+from sensors.serializer import DeviceSerializer, DeviceGeneralSerializer, DeviceTrafficPatternSerializer, DeviceExploitSerializer, DeviceExploitInfoSerializer
 
 @api_view(['GET','POST'])
 def Sensor_list(request):
     if request.method=="GET":
         sensors = DeviceGeneral.objects.all()
-        sensors1 = DeviceTrafficPattern.objects.all()
-        sensors2 = Exploit.objects.all()
-        sensors3 = ExploitInfo.objects.all()
-        serializer = DeviceSerializer(sensors,many=True)
-        serializer1 = DeviceTrafficPatternSerializer(sensors1,many=True)
-        serializer2 = DeviceExploitSerializer(sensors2, many = True)
-        serializer3 = DeviceExploitInfoSerializer(sensors3, many = True)
-        return Response([serializer.data, serializer1.data, serializer2.data,\
-                serializer3.data])
+        #sensors1 = DeviceTrafficPattern.objects.all()
+        #sensors2 = Exploit.objects.all()
+        #sensors3 = ExploitInfo.objects.all()
+        serializer = DeviceGeneralSerializer(sensors,many=True)
+        #serializer1 = DeviceTrafficPatternSerializer(sensors1,many=True)
+        #serializer2 = DeviceExploitSerializer(sensors2, many = True)
+        #serializer3 = DeviceExploitInfoSerializer(sensors3, many = True)
+        return Response(serializer.data)
     elif request.method == 'POST':
         print request.body
         serializer = DeviceSerializer(data=json.loads(request.body))
